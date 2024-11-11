@@ -2,7 +2,8 @@ import 'dotenv/config';
 import { NestFactory } from '@nestjs/core';
 import supertokens from 'supertokens-node';
 import { ApplicationModule } from './modules/Application/module';
-import { SupertokensExceptionFilter } from './modules/Authorization/exceptions';
+import { SupertokensExceptionFilter } from './modules/Authorization/misc';
+// import { TestConst } from "@pawcapsu/types";
 
 async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);

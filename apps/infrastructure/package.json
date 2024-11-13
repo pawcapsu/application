@@ -1,5 +1,5 @@
 {
-    "name": "pawcapsu",
+    "name": "@pawcapsu/infrastructure",
     "main": "index.ts",
     "devDependencies": {
         "@types/node": "^18",

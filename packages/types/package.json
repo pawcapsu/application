@@ -1,0 +1,12 @@
+{
+  "name": "@pawcapsu/types",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@pawcapsu/typescript-config": "*",
+    "typescript": "latest"
+  }
+}

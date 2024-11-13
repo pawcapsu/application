@@ -1,6 +1,7 @@
 <script lang="ts">
     import Logotype from "$lib/assets/pawcapsu-black-small.svg";
     import TestComicsImage from "$lib/assets/920949c1-d1b9-4f2e-9f28-515f3ca6aa89.jpg";
+    import TestProfileAvatar from "$lib/assets/360_F_569712099_v23gg0aE8CCOmunPB9Q3kYUBJf3f8KLu.jpg";
 
     import LucideSearch from '~icons/lucide/search';
     import LucideSquareUserRound from '~icons/lucide/square-user-round';
@@ -9,25 +10,43 @@
     import LucideRss from '~icons/lucide/rss';
     import LucideSettings from '~icons/lucide/settings';
     import LucidePen from '~icons/lucide/pen';
+    import LucideChevronDown from '~icons/lucide/chevron-down';
 
 </script>
 
 <main class="w-full h-screen bg-slate-200 overflow-hidden">
     <!-- Header -->
-    <header class="w-full flex items-center justify-between p-4">
+    <header class="w-full flex items-center justify-between py-4 px-6">
         <!-- Logotype -->
-        <div class="w-1/4">
+        <div class="w-1/4 flex items-center gap-4">
             <img src={Logotype} class="w-8 h-8" alt="pawcapsu logotype">
+        
+            <!-- Account badge -->
+            <div class="flex cursor-pointer transition items-center gap-4 p-2 px-4 bg-slate-100 bg-opacity-60 hover:bg-opacity-100 rounded-xl border-2 border-gray-300">
+                <!-- Account icon -->
+                <img src={TestProfileAvatar} class="w-9 h-9 rounded-full" alt="profile avatar">
+
+                <!-- Texts -->
+                <div class="text-left">
+                    <h1 class="text-sm font-bold">juiipup</h1>
+                    <p class="text-xs">Lorem ipsum dolor sit amet.</p>
+                </div>
+
+                <!-- More settings button -->
+                <button class="transition p-2 rounded-md hover:bg-slate-200">
+                    <LucideChevronDown class="w-5 h-5" />
+                </button>
+            </div>
         </div>
 
         <!-- Search bar -->
         <div class="w-2/4">
-            <div class="w-full rounded-xl bg-gray-200 py-2 px-4 border-[1px] border-gray-300 flex items-center">
+            <div class="w-full rounded-xl bg-slate-100 py-2 px-4 border-[1px] border-gray-300 flex items-center">
                 <!-- Icon -->
                 <LucideSearch class="w-4 h-4 text-gray-700" />
 
                 <!-- Input -->
-                <input type="text" placeholder="Search" class="ml-4 w-full bg-gray-200">
+                <input type="text" placeholder="Search" class="ml-4 w-full bg-slate-100">
             </div>
         </div>
 
@@ -38,7 +57,7 @@
     <!-- Page -->
     <div class="w-full h-screen flex">
         <!-- Sidebar -->
-        <sidebar class="pt-6 w-1/5 h-screen px-4 overflow-auto">
+        <sidebar class="pt-6 min-w-max h-screen px-4 overflow-auto">
             <!-- Navigation buttons -->
             <div class="w-full flex items-center justify-between text-black px-2 opacity-60 hover:opacity-100 transition">
                 <p class="text-xs font-medium uppercase">Navigation</p>

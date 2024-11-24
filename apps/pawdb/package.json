@@ -1,0 +1,17 @@
+{
+  "name": "@pawcapsu/pawdb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@triplit/client": "^0.6.3",
+    "@triplit/server": "^0.5.1",
+    "better-sqlite3": "^11.5.0"
+  }
+}

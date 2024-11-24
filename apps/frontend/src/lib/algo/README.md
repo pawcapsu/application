@@ -1,0 +1,1 @@
+Fast and simple algorithms to build a content page display for users

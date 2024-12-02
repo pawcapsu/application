@@ -25,7 +25,8 @@ export const ContentModuleSchema = {
       tags: S.Set(S.String()),
       meta: S.Record({
         title: S.Optional(S.String()),
-        description: S.Optional(S.String()),
+        description: S.Optional(S.String({ default: "No description provided" })),
+        isNSFW: S.Boolean({ default: false }),
       }),
 
       // Creator meta
@@ -39,7 +40,12 @@ export const ContentModuleSchema = {
   // media (image or video)
   [ContentModuleTables.MediaContent]: {
     schema: PostDefaults({
-      
+      image_url: S.Record({
+        original_resolution: S.String(),
+        high_resolution: S.Optional(S.String()),
+        balanced_resolution: S.Optional(S.String()),
+        low_resolution: S.Optional(S.String())
+      }),
     }),
   },
   // stories

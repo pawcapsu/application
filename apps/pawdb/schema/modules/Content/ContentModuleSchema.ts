@@ -21,6 +21,13 @@ export const ContentModuleSchema = {
       content_type: S.String({ enum: ['media', 'story'] as const }),
       content_id: S.String(),
 
+      // Content tags and other meta-data
+      tags: S.Set(S.String()),
+      meta: S.Record({
+        title: S.Optional(S.String()),
+        description: S.Optional(S.String()),
+      }),
+
       // Creator meta
       creator_id: S.String(),
       created_by: S.RelationOne("users", {

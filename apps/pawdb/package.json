@@ -1,9 +1,16 @@
 {
   "name": "@pawcapsu/pawdb",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "bundle/index.js",
+  "exports": {
+    ".": "./bundle/index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run bundle:watch\" \"npm run schema:dev\"",
+    "bundle": "webpack",
+    "bundle:watch": "webpack --watch",
+    "schema:dev": "npx tsc && npx triplit dev --storage file --initWithSchema --schemaPath ./src/schema.ts",
+    "schema:push": "npx triplit schema push --schemaPath ./src/schema.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +20,13 @@
     "@triplit/client": "^0.6.3",
     "@triplit/server": "^0.5.1",
     "better-sqlite3": "^11.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^9.5.1",
+    "tsc-watch": "^6.2.1",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   }
 }

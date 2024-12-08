@@ -4,7 +4,7 @@ import {ConfigModule, ConfigService } from "@nestjs/config";
 import * as Joi from "joi";
 import { ZitadelAuthModuleConfig } from '../Zitadel/interfaces';
 
-// import * as Modules from "../";
+import * as Modules from "../";
 import { PawDatabaseModule } from '../Pawdb/module';
 import { PawDatabaseModuleConfig } from '../Pawdb/interfaces';
 
@@ -79,7 +79,7 @@ import { PawDatabaseModuleConfig } from '../Pawdb/interfaces';
     }),
 
     // Importing all other modules
-    // ...Object.values(Modules)
+    ...Object.values(Modules)
   ],
   controllers: [],
   providers: [ConfigService],

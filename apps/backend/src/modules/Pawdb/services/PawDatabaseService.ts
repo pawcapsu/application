@@ -1,21 +1,25 @@
-import { Inject, Injectable, OnModuleInit } from "@nestjs/common";
+import { Inject, Injectable, OnApplicationBootstrap, OnModuleInit } from "@nestjs/common";
 import { MODULE_OPTIONS_TOKEN } from "../definitions";
 import { PawDatabaseModuleConfig } from "../interfaces";
-import { HttpClient } from "@triplit/client";
-import { schema } from "@pawcapsu/pawdb/schema";
+import { schema } from "@pawcapsu/pawdb";
+import type { HttpClient } from "@triplit/client";
 
 @Injectable()
-export class PawDatabaseService {
+export class PawDatabaseService implements OnApplicationBootstrap {
   public client: HttpClient<typeof schema>;
 
   constructor(
     @Inject(MODULE_OPTIONS_TOKEN)
-    configuration: PawDatabaseModuleConfig
-  ) {
-    this.client = new HttpClient({
+    private readonly configuration: PawDatabaseModuleConfig
+  ) {};
+
+  async onApplicationBootstrap() {
+    const triplit = await import("@triplit/client");
+    
+    this.client = new triplit.HttpClient({
       schema,
-      serverUrl: configuration.serverUrl,
-      token: configuration.token
+      serverUrl: this.configuration.serverUrl,
+      token: this.configuration.token
     });
   };
 };
